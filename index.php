@@ -51,7 +51,7 @@
             <h1 class="cover-heading">Own Your Learning</h1>
             <p class="lead">Use assessments and tests not to judge students, but as a tool to grow and develop further using data visualised intuitively.</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Sign Up</a>
+              <a href="#" class="btn btn-lg btn-default">Sign In</a>
             </p>
           </div>
 

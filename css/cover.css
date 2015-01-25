@@ -62,7 +62,10 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 30px;
+<<<<<<< HEAD
   text-shadow: 0px 0px 8px #000000;
+=======
+>>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
 }
 
 

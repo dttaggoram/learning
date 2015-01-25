@@ -3,7 +3,7 @@
 if (isset($_POST['user']) && ($_POST['user'] != null)) {
 session_start();
 $_SESSION['user'] = $_POST['user'];
-header( 'Location: http://localhost/learning/home.php' );
+header( 'Location: http://localhost/learning/teacherdashboard.php' );
 
 }
 
@@ -18,13 +18,13 @@ header( 'Location: http://localhost/learning/home.php' );
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Own Your Learning</title>
+    <title>Own Your Learning - Teacher Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
+    <link href="css/coverteacher.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,17 +43,16 @@ header( 'Location: http://localhost/learning/home.php' );
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Own Your Learning</h3>
+              <h3 class="masthead-brand">Own Your Learning - Teacher Login</h3>
             </div>
           </div>
 
           <div class="inner cover">
             <h1 class="cover-heading">Own Your Learning</h1>
-            <p class="lead">Use your past papers to know how to improve and take control of your revision.</p>
-            <p class="lead"><?php echo $_POST["user"]; ?>
+            <p class="lead">Login here to view your classes' analysis and setup new papers.</p>
             <center>
-              <form action="index.php" method="POST">
-                <input type="text" id='user' name='user' class="form-control text-center" style="width:100px" placeholder="5-digit user">
+              <form action="teacherlogin.php" method="POST">
+                <input type="text" name='user' class="form-control text-center" style="width:400px" placeholder="Username">
                 <br />
                 <button type="submit" class="btn btn-lg btn-default">Sign in</button>
               </form>

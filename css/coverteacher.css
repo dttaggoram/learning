@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-        background: url("../images/classroom.JPG") no-repeat center center fixed; 
+        background: url("../images/graph.JPG") no-repeat center center fixed; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -63,6 +63,7 @@ body {
 .inner {
   padding: 30px;
   text-shadow: 0px 0px 8px #000000;
+
 }
 
 

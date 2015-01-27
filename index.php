@@ -49,12 +49,7 @@ header( 'Location: http://localhost/learning/home.php' );
 
           <div class="inner cover">
             <h1 class="cover-heading">Own Your Learning</h1>
-<<<<<<< HEAD
             <p class="lead">Use your past papers to know how to improve and take control of your revision.</p>
-=======
-            <p class="lead">Use assessments and tests not to judge students, but as a tool to grow and develop further using data visualised intuitively.</p>
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
-            <p class="lead"><?php echo $_POST["user"]; ?>
             <center>
               <form action="index.php" method="POST">
                 <input type="text" id='user' name='user' class="form-control text-center" style="width:100px" placeholder="5-digit user">
@@ -67,10 +62,6 @@ header( 'Location: http://localhost/learning/home.php' );
 
           <div class="mastfoot">
             <div class="inner">
-<<<<<<< HEAD
-=======
-              <p>Part of  <a href="http://tagg-oramproductions.co.uk">Tagg-Oram Productions Ltd</a>.</p>
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
             </div>
           </div>
 

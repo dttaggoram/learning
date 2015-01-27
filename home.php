@@ -1,5 +1,4 @@
 <?php include('logcheck.php');?>
-<<<<<<< HEAD
 <?php
 
 $query_outstanding = sprintf("SELECT papername,mark,PreSurvey.studentid AS 'presurvey' ,PostSurvey.studentid AS 'postsurvey' 
@@ -17,8 +16,6 @@ $query_outstanding = sprintf("SELECT papername,mark,PreSurvey.studentid AS 'pres
 $outstanding = mysql_query($query_outstanding, $learning) or die(mysql_error());
 $row_outstanding = mysql_fetch_assoc($outstanding);
 ?>
-=======
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,7 +52,6 @@ $row_outstanding = mysql_fetch_assoc($outstanding);
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Home</h1>
-<<<<<<< HEAD
           <p>Below is a list of all the papers you've done recently. You won't be able to access the next part of the website if any section is not complete.</p>
           <?php
           if (!empty($row_outstanding['mark']) && !empty($row_outstanding['presurvey']) && !empty($row_outstanding['postsurvey'])) {
@@ -93,11 +89,6 @@ $row_outstanding = mysql_fetch_assoc($outstanding);
               ?>
             </tr>
           </table>
-=======
-          <p><?php echo $_SERVER['PHP_SELF']; ?></p>
-
-          
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
         </div>
       </div>
     </div>

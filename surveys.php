@@ -1,5 +1,4 @@
 <?php include('logcheck.php');?>
-<<<<<<< HEAD
 <?php
 
 if (isset($_POST['surveytype']) && $_POST['surveytype'] == 'presurvey') {
@@ -40,8 +39,6 @@ $surveys = mysql_query($query_surveys, $learning) or die(mysql_error());
 $row_surveys = mysql_fetch_assoc($surveys);
 
 ?>
-=======
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,7 +63,6 @@ $row_surveys = mysql_fetch_assoc($surveys);
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<<<<<<< HEAD
     <?php
     if ($row_surveys['mark'] == null) {
     echo ("<SCRIPT LANGUAGE='JavaScript'>
@@ -75,9 +71,7 @@ $row_surveys = mysql_fetch_assoc($surveys);
     </SCRIPT>");
   }
     ?>
-=======
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
-  </head>
+</head>
 
   <body>
   <?php include('nav.php'); ?>
@@ -89,7 +83,6 @@ $row_surveys = mysql_fetch_assoc($surveys);
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Surveys</h1>
-<<<<<<< HEAD
           <?php
           if (empty($row_surveys['presurvey'])) {
             echo "
@@ -147,10 +140,7 @@ $row_surveys = mysql_fetch_assoc($surveys);
           else
             echo "<div class='alert alert-success' role='alert'>All surveys are complete! Go to <a href='charts.php' class='alert-link'>charts</a> to look at your results.</div>";
 ?>
-=======
 
-          
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
         </div>
       </div>
     </div>

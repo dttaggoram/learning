@@ -1,7 +1,6 @@
 <?php include('logcheck.php');?>
 <?php
 
-<<<<<<< HEAD
 if (isset($_POST['formposted']) && $_POST['formposted'] == "insert") {
 
 for ($i = 1; $i < $_POST['totalquestions']; $i++) {
@@ -40,9 +39,7 @@ $query_papers = sprintf("SELECT papername,Papers.paperid
   INNER JOIN ClassPapers ON Papers.paperid = ClassPapers.paperid 
   WHERE classid = %s
   ORDER BY ClassPapers.date DESC", GetSQLValueString($row_user['classid'], "int"));
-=======
 $query_papers = sprintf("SELECT papername,Papers.paperid FROM Papers INNER JOIN ClassPapers ON Papers.paperid = ClassPapers.paperid WHERE classid = %s", GetSQLValueString($row_user['classid'], "int"));
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
 $papers = mysql_query($query_papers, $learning) or die(mysql_error());
 $row_papers = mysql_fetch_assoc($papers);
 
@@ -74,11 +71,7 @@ $row_papers = mysql_fetch_assoc($papers);
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<<<<<<< HEAD
   <script>
-=======
-<script>
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
     $(function() {
       
       $("#paperchoice").change(function() {
@@ -86,7 +79,6 @@ $row_papers = mysql_fetch_assoc($papers);
       });
     
     });
-<<<<<<< HEAD
 
     function validate () {
 
@@ -101,9 +93,7 @@ $row_papers = mysql_fetch_assoc($papers);
       }
 
     }
-=======
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
-      
+
   </script>
   </head>
 
@@ -139,15 +129,9 @@ $row_papers = mysql_fetch_assoc($papers);
               </div>
             </div>
           </form>
-<<<<<<< HEAD
           <form action="marks.php" method="POST" onsubmit="return validate()">
           <div id="marktable"></div>
-=======
           <form>
-          <div id="marktable"></div>
-            <button type="submit" class="btn btn-default">Submit</button>
->>>>>>> 0f5fa7c7a6b2364628be3fd57252880280280c7a
-          </form>
         </div>
       </div>
     </div>

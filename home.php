@@ -58,7 +58,7 @@ $row_outstanding = mysql_fetch_assoc($outstanding);
             echo "<div class='alert alert-success' role='alert'>Up to date!</div>";
           }
           else {
-            echo "<div class='alert alert-danger' role='alert'>You still have sections to complete!</div>";
+            echo "<div class='alert alert-danger' role='alert'>You still have sections to complete!!</div>";
           }
           ?>
           <table class="table table-striped table-bordered">

@@ -1,15 +1,15 @@
 <?php include('logcheck.php');?>
 <?php
 
-$query_outstanding = sprintf("SELECT papername,mark,PreSurvey.studentid AS 'presurvey' ,PostSurvey.studentid AS 'postsurvey' 
+$query_outstanding = sprintf("SELECT Papers.paperid,papername,mark,PreSurvey.studentid AS 'presurvey' ,PostSurvey.studentid AS 'postsurvey' 
   FROM Papers 
   INNER JOIN ClassPapers ON Papers.paperid = ClassPapers.paperid  
   INNER JOIN Class ON ClassPapers.classid = Class.classid 
   INNER JOIN Student ON Class.classid = Student.classid
   INNER JOIN Questions ON Papers.paperid = Questions.paperid
-  LEFT JOIN Marks ON Questions.questionid = Marks.questionid
-  LEFT JOIN PreSurvey ON Papers.paperid = PreSurvey.paperid
-  LEFT JOIN PostSurvey ON Papers.paperid = PostSurvey.paperid
+  LEFT JOIN Marks ON Questions.questionid = Marks.questionid AND Student.studentid = Marks.studentid
+  LEFT JOIN PreSurvey ON Papers.paperid = PreSurvey.paperid AND PreSurvey.studentid = Marks.studentid
+  LEFT JOIN PostSurvey ON Papers.paperid = PostSurvey.paperid AND PostSurvey.studentid = Marks.studentid
   WHERE Student.studentid = %s
   GROUP BY papername
   ORDER BY ClassPapers.date DESC", GetSQLValueString($row_user['studentid'], "int"));
@@ -58,7 +58,7 @@ $row_outstanding = mysql_fetch_assoc($outstanding);
             echo "<div class='alert alert-success' role='alert'>Up to date!</div>";
           }
           else {
-            echo "<div class='alert alert-danger' role='alert'>You still have sections to complete!!</div>";
+            echo "<div class='alert alert-warning' role='alert'>You still have sections to complete!</div>";
           }
           ?>
           <table class="table table-striped table-bordered">
@@ -73,16 +73,32 @@ $row_outstanding = mysql_fetch_assoc($outstanding);
                 echo "<tr>
                 <td>".$row_outstanding['papername']."</td>
                 <td>";
-                if (isset($row_outstanding['mark'])) {echo "Complete";}else{echo "<a href='marks.php'>To be done</a>";}
+                if (isset($row_outstanding['mark'])) {
+                	echo "Complete <span class='glyphicon glyphicon-ok-sign' style='color:green' aria-hidden='true'></span>";
+                } else {
+                	echo "<a href='marks.php?pid=".$row_outstanding['paperid']."'>To be done</a> <span class='glyphicon glyphicon-question-sign' style='color:red' aria-hidden='true'></span>";
+                }
                 echo "</td>
                 <td>";
-                if (isset($row_outstanding['presurvey'])) {echo "Complete";}else{echo "<a href='surveys.php'>To be done</a>";}
+                if (isset($row_outstanding['presurvey'])) {
+                	echo "Complete <span class='glyphicon glyphicon-ok-sign' style='color:green' aria-hidden='true'></span>";
+                } else {
+                	echo "<a href='surveys.php?pid=".$row_outstanding['paperid']."'>To be done</a> <span class='glyphicon glyphicon-question-sign' style='color:red' aria-hidden='true'></span>";
+                }
                 echo "</td>
                 <td>";
-                if (isset($row_outstanding['mark'])) {echo "<a href='charts.php'>View chart</a>";}else{echo "<a href='marks.php'>Needs marks</a>";}
+                if (isset($row_outstanding['mark'])) {
+                	echo "<a href='charts.php?pid=".$row_outstanding['paperid']."'>View chart</a>";
+                } else {
+                	echo "<a href='marks.php?pid=".$row_outstanding['paperid']."'>Needs marks</a> <span class='glyphicon glyphicon-question-sign' style='color:red' aria-hidden='true'></span>";
+                }
                 echo "</td>
                 <td>";
-                if (isset($row_outstanding['postsurvey'])) {echo "Complete";}else{echo "<a href='surveys.php'>To be done</a>";}
+                if (isset($row_outstanding['postsurvey'])) {
+                	echo "Complete <span class='glyphicon glyphicon-ok-sign' style='color:green' aria-hidden='true'></span>";
+                } else {
+                	echo "<a href='surveys.php?pid=".$row_outstanding['paperid']."'>To be done</a> <span class='glyphicon glyphicon-question-sign' style='color:red' aria-hidden='true'></span>";
+                }
                 echo "</td>
                 </tr>";
               } while ($row_outstanding = mysql_fetch_assoc($outstanding));

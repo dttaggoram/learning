@@ -9,11 +9,9 @@ if (isset($_GET['pid'])) {
 
 $query_questions = sprintf("SELECT Questions.questionid,questionnumber,mark,marks 
 FROM Questions 
-LEFT JOIN Marks ON Questions.questionid = Marks.questionid 
-LEFT JOIN ClassPapers ON Questions.paperid = ClassPapers.paperid 
-LEFT JOIN Class ON ClassPapers.classid = Class.classid
-LEFT JOIN Student ON Class.classid = Student.classid 
-WHERE Questions.paperid = %s AND Student.studentid = %s", GetSQLValueString($pid, "int"), GetSQLValueString($row_user['studentid'], "int"));
+JOIN Student
+LEFT JOIN Marks ON Questions.questionid = Marks.questionid AND Student.studentid = Marks.studentid
+WHERE Questions.paperid = %s AND (Student.studentid = %s OR Student.studentid IS NULL)", GetSQLValueString($pid, "int"), GetSQLValueString($row_user['studentid'], "int"));
 $questions = mysql_query($query_questions, $learning) or die(mysql_error());
 $row_questions = mysql_fetch_assoc($questions);
 $row_questionsTotal = mysql_num_rows($questions);
@@ -28,6 +26,7 @@ do {
 	<td>
 	<input name='question".$j."' type='text' placeholder='Fill in marks for every question' class='form-control' value='".$row_questions['mark']."'>
 	<input name='questionnumber".$j."' type='hidden' value='".$row_questions['questionid']."'>
+	<input class='maxmarks' name='marks".$j."' type='hidden' value='".$row_questions['marks']."'>
 	</td>
 	<td>Max: ".$row_questions['marks']."
 	</td>";

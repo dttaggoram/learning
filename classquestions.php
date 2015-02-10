@@ -86,7 +86,7 @@ function addpaperquestions(j) {
   </head>
 
   <body>
-  <?php include('nav.php'); ?>
+  <?php include('navteacher.php'); ?>
 
     <div class="container-fluid">
       <div class="row">

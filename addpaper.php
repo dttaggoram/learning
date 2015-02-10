@@ -9,9 +9,13 @@ if (isset($_GET['cid'])) {
 
 $query_papers = sprintf("SELECT * 
 	FROM Papers 
-	LEFT JOIN ClassPapers ON Papers.paperid = ClassPapers.paperid 
-	WHERE classid != %s  
-	ORDER BY Papers.date", GetSQLValueString($cid, "int"));
+    JOIN Class
+    LEFT JOIN ClassPapers 
+    ON Class.classid = ClassPapers.classid 
+    AND Papers.paperid = ClassPapers.paperid
+	WHERE ClassPapers.date IS NULL  
+	AND Class.classid = %s 
+	ORDER BY Papers.paperid", GetSQLValueString($cid, "int"));
 $papers = mysql_query($query_papers, $learning) or die(mysql_error());
 $row_papers = mysql_fetch_assoc($papers);
 

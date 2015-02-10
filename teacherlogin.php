@@ -1,8 +1,9 @@
 <?php  
 
-if (isset($_POST['user']) && ($_POST['user'] != null)) {
+if (isset($_POST['teacher']) && ($_POST['teacher'] != null)) {
 session_start();
-$_SESSION['user'] = $_POST['user'];
+$_SESSION['teacher'] = $_POST['teacher'];
+$_SESSION['pw'] = md5($_POST['password']);
 header( 'Location: http://localhost/learning/teacherdashboard.php' );
 
 }
@@ -52,7 +53,9 @@ header( 'Location: http://localhost/learning/teacherdashboard.php' );
             <p class="lead">Login here to view your classes' analysis and setup new papers.</p>
             <center>
               <form action="teacherlogin.php" method="POST">
-                <input type="text" name='user' class="form-control text-center" style="width:400px" placeholder="Username">
+                <input type="text" name='teacher' class="form-control text-center" style="width:400px" placeholder="Username"><br />
+                <input type="password" name='password' class="form-control text-center" style="width:400px" placeholder="Password">
+
                 <br />
                 <button type="submit" class="btn btn-lg btn-default">Sign in</button>
               </form>
@@ -62,6 +65,7 @@ header( 'Location: http://localhost/learning/teacherdashboard.php' );
 
           <div class="mastfoot">
             <div class="inner">
+            <a href="index.php">Student Login</a>
             </div>
           </div>
 

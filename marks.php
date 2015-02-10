@@ -59,12 +59,8 @@ $row_papers = mysql_fetch_assoc($papers);
     <title>Own Your Learning - Marks</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <?php include("stylesheets.php");?>
 
-    <!-- Custom styles for this template -->
-
-
-    <link href="css/dashboard.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -72,6 +68,17 @@ $row_papers = mysql_fetch_assoc($papers);
     <![endif]-->
 
   <script>
+
+  <?php
+
+  if(isset($_GET['pid'])) { echo "
+$(document).ready(function(){
+        $('#marktable').load('selectmarks.php?pid=".$_GET['pid']."');
+    
+    });
+
+    ";}
+  ?>
     $(function() {
       
       $("#paperchoice").change(function() {
@@ -83,13 +90,18 @@ $row_papers = mysql_fetch_assoc($papers);
     function validate () {
 
       var elements=document.querySelectorAll('input');
-      for(var i=0;i<elements.length;i++){
+      var elementmarks=document.querySelectorAll('input.maxmarks');
+      for(i=0;i<elements.length;i++){
+        
 
         var x=elements[i].value;
-        if (x == null || x == "") {
+      if (x == null || x == "") {
         alert("All questions must have marks.");
         return false;
-    }
+      }
+      else {
+        var u=elementmarks[i].value;
+      }
       }
 
     }
@@ -120,7 +132,7 @@ $row_papers = mysql_fetch_assoc($papers);
                     echo "<option>Please select a paper</option>";
                   do {
                     echo "<option value=".$row_papers['paperid'];
-                    if ($_POST['pid'] == $row_papers['paperid']) echo " checked ";
+                    if ($_GET['pid'] == $row_papers['paperid']) echo " selected ";
                     echo ">".$row_papers['papername']."</option>";
                     } while ($row_papers = mysql_fetch_assoc($papers));
                   }
@@ -136,14 +148,8 @@ $row_papers = mysql_fetch_assoc($papers);
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- <script src="js/docs.min.js"></script> -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <?php include("scripts.php");?>
+    
   </body>
 </html>
 

@@ -62,6 +62,7 @@ header( 'Location: http://localhost/learning/home.php' );
 
           <div class="mastfoot">
             <div class="inner">
+            <a href="teacherlogin.php">Teacher Login</a>
             </div>
           </div>
 

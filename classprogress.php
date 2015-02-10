@@ -50,7 +50,7 @@ $row_classes = mysql_fetch_assoc($classes);
   </head>
 
   <body>
-  <?php include('nav.php'); ?>
+  <?php include('navteacher.php'); ?>
 
     <div class="container-fluid">
       <div class="row">
@@ -85,7 +85,7 @@ $row_classes = mysql_fetch_assoc($classes);
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery-1.6.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

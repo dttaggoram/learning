@@ -20,7 +20,7 @@ INNER JOIN Questions ON Papers.paperid = Questions.paperid
 LEFT JOIN ClassQuestionsLearnt ON Questions.questionid = ClassQuestionsLearnt.questionid AND Class.classid = ClassQuestionsLearnt.classid
 WHERE Class.classid = %s AND Papers.paperid = %s
 GROUP BY Questions.questionid
-ORDER BY Questions.questionnumber", GetSQLValueString($cid, "int"), GetSQLValueString($pid, "int"));
+ORDER BY Questions.questionid", GetSQLValueString($cid, "int"), GetSQLValueString($pid, "int"));
 $questions = mysql_query($query_questions, $learning) or die(mysql_error());
 $row_questions = mysql_fetch_assoc($questions);
 

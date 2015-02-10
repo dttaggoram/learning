@@ -143,10 +143,10 @@ $row_nextgrade = mysql_fetch_assoc($nextgrade);
 	                  ?>
 	            </select>
 	            <button type="submit" class="btn btn-default">Select</button><span style="margin-left:50px"></span>
-	          	<span class="pull-right">All Grades - <input type="checkbox" id="gradebutton" data-on-text="All" data-off-text="My" data-off-color="warning"> - My Grades</span>
+	          	<span class="pull-right">All Grades - <input type="checkbox" id="gradebutton" data-on-text="All" data-off-text="My"> - My Grades</span>
           	</form>
           	</div>
-          	<div class="row" style="height:250px">
+          	<div class="row" style="min-height:250px">
           		<div class="col-md-4 text-center">
 	          		<h4>You achieved a<br />
 	          		<span class="h1"><?php echo $row_grade['boundary'];?></span><br />
